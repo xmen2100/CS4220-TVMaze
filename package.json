@@ -1,0 +1,33 @@
+{
+  "name": "cs4220-tvmaze",
+  "version": "1.0.0",
+  "description": "A Node.js Command Line Interface (CLI) application (cli.js) that interacts with the selected API and a JSON history file. \r The application's purpose is to allow a user to search for TV shows and get detailed information through the CLI, while storing search keywords in a history file. \r The application will transition to Express server-based and use MongoDB for database storage.",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/101an101/CS4220-TVMaze.git"
+  },
+  "keywords": [],
+  "author": "Clinton Ma",
+  "contributors:": [
+    "Jason Giang",
+    "An Chen",
+    "Hunter Williamson",
+    "Jessie Guijosa"
+  ],
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/101an101/CS4220-TVMaze/issues"
+  },
+  "homepage": "https://github.com/101an101/CS4220-TVMaze#readme",
+  "dependencies": {
+    "@inquirer/prompts": "^8.3.2",
+    "axios": "^1.13.6",
+    "inquirer": "^13.3.2",
+    "yargs": "^18.0.0"
+  }
+}
