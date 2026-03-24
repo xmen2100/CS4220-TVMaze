@@ -46,6 +46,22 @@ const displayShows = async (results) => {
     });
 };
 
+const displayHistory = async (keywords) => {
+    const choices = keywords.map((keyword) => {
+        return {
+            name: keyword,
+            value: keyword
+        };
+    });
+
+    choices.unshift({ name: 'Exit', value: null });
+
+    return await select({
+        message: 'Select a previous keyword:',
+        choices
+    });
+};
+
 export const runSearch = async (keyword) => {
     try {
         const results = await searchShows(keyword);
@@ -67,6 +83,33 @@ export const runSearch = async (keyword) => {
         const show = await getShowById(selectedId);
 
         displayShowDetails(show);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export const runHistory = async (type) => {
+    try {
+        if (type !== 'keywords') {
+            console.log('Invalid argument. Usage: node cli.js history keywords');
+            return;
+        }
+
+        const keywords = await find();
+
+        if (!keywords.length) {
+            console.log('No keyword history found.');
+            return;
+        }
+
+        const selectedKeyword = await displayHistory(keywords);
+
+        if (!selectedKeyword) {
+            console.log('Exited history.');
+            return;
+        }
+
+        await runSearch(selectedKeyword);
     } catch (error) {
         console.error(error);
     }
