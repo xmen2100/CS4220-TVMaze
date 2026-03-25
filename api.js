@@ -7,7 +7,7 @@ export async function searchShows(keyword) {
 
         const response = await axios.get(`${BASE_URL}/search/shows?q=${keyword}`);
         
-        return response.data.map(item => item.show);
+        return response.data;
         
     } catch (error) {
         console.error('There was an error getting the search results:', error.message);
