@@ -1,16 +1,29 @@
+import axios from 'axios';
 
 const BASE_URL = 'https://api.tvmaze.com';
 
 export async function searchShows(keyword) {
-    const response = await fetch(`https://api.tvmaze.com/search/shows?q=${keyword}`);
-    const data = await response.json();
+    try {
 
-    return data;
+        const response = await axios.get(`${BASE_URL}/search/shows?q=${keyword}`);
+        
+        return response.data.map(item => item.show);
+        
+    } catch (error) {
+        console.error('There was an error getting the search results:', error.message);
+        return [];
+    } 
 }
 
 export async function getShowById(id) {
-    const response = await fetch(`${BASE_URL}/shows/${id}`);
-    const data = await response.json();
+    try {
 
-    return data;
+        const response = await axios.get(`${BASE_URL}/shows/${id}`);
+
+        return response.data;
+
+    } catch (error) {
+        console.error('There was an error getting the show details:', error.message);
+        return null;
+    }
 }
