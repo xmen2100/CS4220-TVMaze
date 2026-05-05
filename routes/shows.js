@@ -15,7 +15,7 @@ const _formatShows = (results) => {
     });
 };
 
-// ex: localhost:8888/shows?keyword=batman
+// ex: localhost:8888/shows?keyword=pokemon
 router.get('/', async (req, res) => {
     try {
         const { query } = req;
@@ -48,3 +48,6 @@ router.get('/', async (req, res) => {
         res.status(500).json({ error });
     }
 });
+
+// ----- implement GET /<topic>/:id here -----
+// ----- ex: localhost:8888/shows/590 -----
