@@ -1,0 +1,27 @@
+{
+  "name": "cs4220-tvmaze",
+  "version": "1.0.0",
+  "description": "a server based application for searching TV shows and viewing keyword history",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npx nodemon server.js"
+  },
+  "author": "Clinton Ma",
+  "contributors:": [
+    "Jason Giang",
+    "An Chen",
+    "Hunter Williamson",
+    "Jessie Guijosa"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.16.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongodb": "^7.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
