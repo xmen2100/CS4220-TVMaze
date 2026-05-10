@@ -4,6 +4,7 @@ import history from './routes/history.js';
 import db from './services/db.js';
 
 const app = express();
+app.set('json spaces', 2);
 const port = 3000;
 
 app.use(express.json());
