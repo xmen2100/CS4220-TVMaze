@@ -1,11 +1,14 @@
 import express from 'express';
-import shows from './shows.js';
-import history from './history.js';
+import shows from './routes/shows.js';
+import history from './routes/history.js';
+import db from './services/db.js';
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
+
+db.connect();
 
 app.use('/shows', shows);
 app.use('/history', history);
