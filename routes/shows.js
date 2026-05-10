@@ -15,7 +15,7 @@ const _formatShows = (results) => {
     });
 };
 
-// ex: localhost:8888/shows?keyword=pokemon
+// ex: localhost:3000/shows?keyword=pokemon
 router.get('/', async (req, res) => {
     try {
         const { query } = req;
