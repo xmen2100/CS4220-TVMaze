@@ -8,8 +8,6 @@ const port = 3000;
 
 app.use(express.json());
 
-db.connect();
-
 app.use('/shows', shows);
 app.use('/history', history);
 
@@ -17,6 +15,13 @@ app.use('*', (req, res) => {
     res.status(404).json({ error: 'Route not found' });
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+// start server and connect to MongoDB
+app.listen(port, async () => {
+    try {
+        await db.connect();
+        console.log('Connected to MongoDB');
+        console.log(`Server is running on http://localhost:${port}`);
+    } catch (error) {
+        console.error('Failed to connect to MongoDB:', error);
+    }
 });
