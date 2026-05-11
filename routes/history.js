@@ -19,15 +19,17 @@ router.get('/', async(req, res) => {
     }
 
     try {
-        const cursor = await db.find(
-            'SearchHistoryKeyword',
-            {},
-            { projection: { _id: 0} }
-        );
+        const cursor = await db.find('SearchHistoryKeyword');
 
         const keywords = await cursor.toArray();
 
-        return res.status(200).json(keywords);
+        const cleanKeywords = keywords.map((entry) => {
+            return {
+                keyword: entry.keyword
+            };
+        });
+
+        return res.status(200).json(cleanKeywords);
 
     } catch (err) {
         return res.status(500).json({
