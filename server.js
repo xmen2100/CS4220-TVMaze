@@ -12,7 +12,7 @@ app.use(express.json());
 app.use('/shows', shows);
 app.use('/history', history);
 
-app.use('*', (req, res) => {
+app.use((req, res) => {
     res.status(404).json({ error: 'Route not found' });
 });
 
